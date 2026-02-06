@@ -1,0 +1,89 @@
+.dashboard-container{
+  background-image: url("../images/Dashboard-background.png");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 435px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 80px 0;
+}
+
+.dashboard-box{
+    display: flex;
+    margin-right: 150px;
+    gap: 48px;
+}
+.dashboard-title{
+    font-family: Montserrat;
+    font-weight: 600;
+     color: #fff;
+     font-size: 40px;
+}
+
+.dashboard-text{
+    width: 323px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #fff;
+}
+
+.dashboard-date{
+        font-family: Montserrat;
+    font-weight: 500;
+     color: #fff;
+}
+
+.dashboard-line{
+    width: 3px;
+    height: 144px;
+    background-color: #fff;
+}
+
+.dashboard-boxes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+}
+
+.dashboard-input{
+    width: 411px;
+    height: 33px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    padding-left: 20px;
+}
+
+.dashboard-input-button{
+height: 36px;
+border-radius: 0 8px 8px 0;
+ background-color: #FFB36C;
+    border: none;
+    width: 35px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+  stroke: black;
+  fill: none;
+  width: 25px;
+  height: 25px;
+
+}
+
+
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
