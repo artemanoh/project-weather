@@ -1,0 +1,99 @@
+.footer {
+    background-color: #FFB36C;
+}
+
+.footer-container {
+    padding-top: 62px;
+    padding-bottom: 64px;
+}
+
+.footer-div {
+    display: flex;
+    align-items: start;
+    gap: 103px;
+}
+
+.footer-logo {
+    width: 40px;
+    height: 30px;
+
+    @media screen and (min-width: 768px) {
+        width: 48px;
+        height: 35px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 80px;
+        height: 52px;
+    }
+}
+
+.footer-box {}
+
+.footer-mobile-box {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @media screen and (min-width: 500px) {
+        flex-direction: row;
+        gap: 103px;
+    }
+}
+
+.footer-addres {
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        font-size: 16px;
+    }
+}
+
+.footer-text {
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+    font-size: 8px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 10px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        font-size: 12px;
+    }
+}
+
+.footer-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-contact-box {
+    display: flex;
+    gap: 21px;
+}
+
+.footer-contact {
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+    font-size: 12px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        font-size: 16px;
+    }
+}

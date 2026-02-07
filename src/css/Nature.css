@@ -1,0 +1,19 @@
+.nature{
+    display: none;
+     @media screen and (min-width: 1200px) {
+      display: block;
+    }
+}
+
+.nature-container{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.nature-title{
+        text-align: start;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 40px;
+}

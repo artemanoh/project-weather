@@ -1,0 +1,59 @@
+.pets {
+display: none;
+   @media screen and (min-width: 1200px) {
+      display: block;
+    }
+}
+
+.pets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.pets-title {
+    text-align: start;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.pets-list {
+    display: flex;
+    gap: 20px;
+}
+
+.pets-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pets-list-item-image {
+    width: 270px;
+    height: 208px;
+}
+
+.pets-list-item-text {
+    text-align: left;
+    width: 270px;
+}
+
+.pets-button {
+    width: 125px;
+   background-color: #FFB36C;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-weight: 400;
+    color: #000;
+       transition: background-color 0.3s ease, transform 0.3s ease;
+
+   
+}
+
+.pets-button:hover {
+  background-color: #f6c189;
+  transform: scale(1.10);
+}
