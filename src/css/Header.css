@@ -252,3 +252,63 @@
 .header-menu-open{
 
 }
+
+body {
+  position: relative;
+}
+
+.menu-btn {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  transition: all .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  cursor: pointer;
+}
+
+.menu-btn:before, .menu-btn:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 4px;
+  left: 0;
+  background: linear-gradient(45deg, rgb(0, 0, 1) 0%, rgb(0, 0, 0) 100%);
+  transition: all .5s;
+}
+
+.menu-btn:before {
+  top: -12px;
+}
+
+.menu-btn:after {
+  top: 12px;
+}
+
+.menu-btn.open {
+  transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.menu-btn.open:before, .menu-btn.open:after {
+  top: 0px;
+}
+
+.menu-btn.open:after {
+  transform: rotate(90deg);
+  width: 40px;
+}
+
+.menu-btn:before, .menu-btn:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 4px;
+  left: 0;
+  background: rgb(1, 1, 3);
+  transition: all .5s;
+}

@@ -35,9 +35,8 @@ export const Header = () => {
             </div>
             <div className="header-mobile-box"><img className="header-logo-menu" src={logo} alt="logo" />
             <div className="header-inner">
-              <h2 className="header-menu">Menu</h2>
-              <button className="header-menu-btn" onClick={() => setOpen(!open)}>
-                <img onClick={handleClick} style={{ transform: `rotateX(${rotation}deg)` }} className="header-menu-open" src={menu} alt="" />
+              <button   className={`menu-btn ${open ? 'open' : ''}`}
+  onClick={() => setOpen(!open)}>
               </button>
             </div>
             </div>

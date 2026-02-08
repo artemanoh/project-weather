@@ -1,0 +1,69 @@
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+/* базові бокові слайди */
+.slide {
+  width: 200px;
+  height: 120px;
+  margin-left: -100px; /* половина ширини → перекриття */
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: all 0.5s ease;
+  filter: brightness(0.7);
+}
+
+/* перший слайд, щоб не зʼїжджав */
+.slide:first-child {
+  margin-left: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* центральний слайд */
+.slide.active {
+  width: 400px;
+  height: 240px;
+  margin-left: -200px; /* половина ширини */
+  opacity: 1;
+  transform: scale(1);
+  filter: brightness(1);
+  z-index: 2;
+}
+
+/* кнопки */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 32px;
+  padding: 6px 14px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav.left { left: 0; }
+.nav.right { right: 0; }

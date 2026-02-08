@@ -5,6 +5,7 @@ import { Weather } from './components/Weather';
 import { Pets } from './components/Pets';
 import { Footer } from './components/Footer';
 import { Nature } from './components/Nature';
+import Slider from './components/Slider';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
 <Weather/>
 <Pets/>
 <Nature/>
+
+<Slider/>
 <Footer/>
 
     </div>
