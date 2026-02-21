@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d4e066d1.css",
+    "main.js": "/static/js/main.f617b656.js",
+    "static/media/Dashboard-background.png": "/static/media/Dashboard-background.da9ed10f332385239f5f.png",
+    "static/media/Dashboard-background-mobile.png": "/static/media/Dashboard-background-mobile.909615ffc2208d585a9f.png",
+    "static/media/pressure.png": "/static/media/pressure.886dcce6ba8f3f683cc5.png",
+    "index.html": "/index.html",
+    "main.d4e066d1.css.map": "/static/css/main.d4e066d1.css.map",
+    "main.f617b656.js.map": "/static/js/main.f617b656.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4e066d1.css",
+    "static/js/main.f617b656.js"
+  ]
+}
