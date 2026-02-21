@@ -1,6 +1,7 @@
 {
   "name": "project-weather",
   "version": "0.1.0",
+  "homepage": "https://artemanoh.github.io/project-weather/",
   "private": true,
   "dependencies": {
     "@carousel-ui/react-spin-carousel-3d": "^1.0.18",
