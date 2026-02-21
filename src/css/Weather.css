@@ -1,6 +1,10 @@
 .weather {
   padding-bottom: 70px;
   font-family: Montserrat;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .weather-list {
@@ -29,6 +33,14 @@
     }
 }
 
+.weather-button-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+}
+
 
 .weather-box {
     display: flex;
@@ -43,6 +55,10 @@
    @media screen and (min-width: 1200px) {
       font-size: 14px;
     }
+}
+
+.icon-heart-liked {
+  fill: red;
 }
 
 .weather-country {
@@ -203,6 +219,7 @@ display: flex;
   fill: red;
   width: 24px;
   height: 24px;
+   transition: fill 0.3s ease;
 
      @media screen and (min-width: 1200px) {
       width: 32px;

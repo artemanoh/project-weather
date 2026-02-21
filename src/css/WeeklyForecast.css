@@ -1,0 +1,143 @@
+.wekly-forecast {
+   padding: 30px 0;
+
+}
+.wekly-forecast-box {
+     background-color: #E8E8E8;
+    width: 293px;
+    height: 555px;
+    border-radius: 20px;
+    padding: 30px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: 768px) {
+      height: 390px;
+      width: 634px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 1140px;
+      height: 454px;
+    }
+}
+.wekly-forecast-title {
+     font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 21px;
+  text-align: left;
+  align-self: flex-start;
+  margin-left: 40px;
+   
+
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 18px;
+    }
+}
+.wekly-forecast-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 43px;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  align-items: center;
+  }
+}
+
+.wekly-forecast-boxes{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+     @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+}
+
+.wekly-forecast-img{
+    width: 40px;
+    height: 40px;
+    
+
+    @media screen and (min-width: 768px) {
+      width: 45px;
+      height: 45px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 50px;
+      height: 50px;
+    }
+}
+.wekly-forecast-list-item {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 140px;
+    background-color: #D9D9D9;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+
+    @media screen and (min-width: 768px) {
+      height: 40px;
+       flex-direction: row;
+      width: 564px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      height: 48px;
+      width: 986px;
+    }
+}
+.wekly-forecast-text {
+     font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 16px;
+
+    }
+  
+}
+.wekly-forecast-temp {
+     font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 16px;
+    }
+}
+.wekly-forecast-desk {
+    font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 16px;
+    }
+}

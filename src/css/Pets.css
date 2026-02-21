@@ -20,7 +20,8 @@ display: none;
 
 .pets-list {
     display: flex;
-    gap: 20px;
+    gap: 13px;
+    flex-wrap: wrap;
 }
 
 .pets-list-item {

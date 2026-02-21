@@ -1,0 +1,159 @@
+  .modal-backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+  }
+
+  .modal-is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+.modal-content{
+    position: relative;
+width: 293px;
+height: 454px;
+background-color: #fff;
+display: flex;
+flex-direction: column;
+border-radius: 20px;
+
+    @media screen and (min-width: 768px) {
+        width: 400px;
+        height: 460px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 600px;
+        height: 554px;
+    }
+}
+.modal-title{
+    font-family: Montserrat Alternates;
+    font-weight: 500;
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+
+       @media screen and (min-width: 1200px) {
+        margin-bottom: 40px;
+        font-size: 28px;
+    }
+}
+.modal-form{
+
+}
+.modal-list{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.modal-list-item{
+margin-bottom: 25px;
+
+ @media screen and (min-width: 1200px) {
+margin-bottom: 30px;
+    }
+}
+.modal-label{
+display: flex;
+flex-direction: column;
+align-items: start;
+gap: 15px;
+ font-family: Montserrat;
+    font-weight: 500;
+    color: #000;
+    font-size: 10px;
+
+     @media screen and (min-width: 768px) {
+        font-size: 12px;
+    }
+
+ @media screen and (min-width: 1200px) {
+        font-size: 14px;
+    }
+}
+.modal-input{
+width: 243px;
+height: 40px;
+border-radius: 10px;
+border: none;
+background-color: #E4E4E4;
+font-size: 10px;
+ font-family: Montserrat;
+    font-weight: 500;
+     padding-left: 20px;
+
+ @media screen and (min-width: 768px) {
+width: 310px;
+font-style: 12px;
+    }
+
+ @media screen and (min-width: 1200px) {
+        width: 440px;
+        height: 50px;
+    }
+}
+.modal-button {
+    background-color: #FFB36C;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-weight: 400;
+    color: #000;
+    font-size: 12px;
+    margin-bottom: 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+    @media screen and (min-width: 1200px) {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+.modal-button:hover {
+  background-color: #f6c189;
+  transform: scale(1.10);
+}
+.modal-footer{
+font-family: Montserrat;
+    font-weight: 500;
+    color: #000;
+    font-size: 12px;
+}
+.modal-link{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal-close{
+position: absolute;
+left: 245px;
+top: 20px;
+    border: none;
+    background-color: transparent;
+
+     @media screen and (min-width: 768px) {
+       left: 350px;
+       top: 20px;
+    }
+
+     @media screen and (min-width: 1200px) {
+       left: 550px;
+       top: 25px;
+    }
+}
+
+.modal-is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
