@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.d4e066d1.css",
-    "main.js": "/static/js/main.f617b656.js",
-    "static/media/Dashboard-background.png": "/static/media/Dashboard-background.da9ed10f332385239f5f.png",
-    "static/media/Dashboard-background-mobile.png": "/static/media/Dashboard-background-mobile.909615ffc2208d585a9f.png",
-    "static/media/pressure.png": "/static/media/pressure.886dcce6ba8f3f683cc5.png",
-    "index.html": "/index.html",
-    "main.d4e066d1.css.map": "/static/css/main.d4e066d1.css.map",
-    "main.f617b656.js.map": "/static/js/main.f617b656.js.map"
+    "main.css": "/project-weather/static/css/main.52979e6c.css",
+    "main.js": "/project-weather/static/js/main.46bcecce.js",
+    "static/media/Dashboard-background.png": "/project-weather/static/media/Dashboard-background.da9ed10f332385239f5f.png",
+    "static/media/Dashboard-background-mobile.png": "/project-weather/static/media/Dashboard-background-mobile.909615ffc2208d585a9f.png",
+    "static/media/pressure.png": "/project-weather/static/media/pressure.886dcce6ba8f3f683cc5.png",
+    "index.html": "/project-weather/index.html",
+    "main.52979e6c.css.map": "/project-weather/static/css/main.52979e6c.css.map",
+    "main.46bcecce.js.map": "/project-weather/static/js/main.46bcecce.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4e066d1.css",
-    "static/js/main.f617b656.js"
+    "static/css/main.52979e6c.css",
+    "static/js/main.46bcecce.js"
   ]
 }
