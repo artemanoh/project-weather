@@ -9,7 +9,7 @@ export const Modal = ({ onClose, openLogin, setUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-     setUser(username);
+    setUser({ name: username });
     setUsername("");
     setEmail("");
     setPassword("");

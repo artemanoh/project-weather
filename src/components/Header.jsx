@@ -25,8 +25,8 @@ export const Header = ({ onOpenModal, user, onLogOut }) => {
                           Log out
                         </button>
                         <div className="header-name-wrapper">
-                          <span className="header-name">{user}</span>
-                          <span className="tooltip">{user}</span>
+                          <span className="header-name">{user.name}</span>
+                          <span className="tooltip">{user.name}</span>
                         </div>
                       </>
                     ) : (
@@ -65,8 +65,8 @@ export const Header = ({ onOpenModal, user, onLogOut }) => {
                       Log out
                     </button>
                     <div className="header-name-wrapper-mobile">
-                      <span className="header-name-mobile">{user}</span>
-                      <span className="tooltip-mobile">{user}</span>
+                      <span className="header-name-mobile">{user.name}</span>
+                      <span className="tooltip-mobile">{user.name}</span>
                     </div>
                   </>
                 ) : (

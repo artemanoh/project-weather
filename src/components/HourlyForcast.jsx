@@ -27,8 +27,9 @@ export const HourlyForecast = ({ hourlyData }) => {
 
   return (
     <div className="hourlyForecast">
-        <LineChart width={visibleData.length * 80} height={320} data={visibleData}>
-          <CartesianGrid stroke="#d9d9d9" vertical={true} horizontal={true} />
+       <div className="chart-wrapper">
+        <LineChart width={visibleData.length * 80} height={320} data={visibleData} margin={{ top: 20, right: 20,  bottom: 20 }}>
+          <CartesianGrid stroke="#d9d9d9" vertical={true} horizontal={true}/>
 
           <XAxis dataKey="time" orientation="top" />
           <YAxis />
@@ -43,6 +44,7 @@ export const HourlyForecast = ({ hourlyData }) => {
             dot={{ r: 4 }}
           />
         </LineChart>
+      </div>
       </div>
   );
 };

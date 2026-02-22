@@ -11,10 +11,38 @@ export const Weather = ({
   refreshCity,
   toggleLikeCity,
   getHourlyWeather,
+  user,
 }) => {
   const [activeCity, setActiveCity] = useState(null);
   const [activeForecast, setActiveForecast] = useState(null);
   const [hourlyData, setHourlyData] = useState([]);
+
+  const handleRemoveCity = (cityId) => {
+    if (activeCity?.id === cityId) {
+      setActiveCity(null);
+      setActiveForecast(null);
+      setHourlyData([]);
+    }
+
+    removeCity(cityId);
+  };
+
+  const openForecast = async (city, type) => {
+    if (activeCity?.id === city.id && activeForecast === type) {
+      setActiveCity(null);
+      setActiveForecast(null);
+      setHourlyData([]);
+      return;
+    }
+
+    setActiveCity(city);
+    setActiveForecast(type);
+
+    if (type === "hourly") {
+      const data = await getHourlyWeather(city);
+      setHourlyData(data || []);
+    }
+  };
 
   return (
     <section className="weather">
@@ -32,47 +60,33 @@ export const Weather = ({
                   Date.now() + city.timezone * 1000,
                 ).toLocaleTimeString()}
               </h2>
+              {user && (
+                <div className="weather-button-box">
+                  <button
+                    className="weather-button"
+                    onClick={() => openForecast(city, "hourly")}
+                  >
+                    Hourly forecast
+                  </button>
 
-              <div className="weather-button-box">
-                <button
-                  className="weather-button"
-                  onClick={async () => {
-                    if (
-                      activeCity?.id === city.id &&
-                      activeForecast === "hourly"
-                    ) {
-                      setActiveCity(null);
-                      setActiveForecast(null);
-                    } else {
-                      setActiveCity(city);
-                      setActiveForecast("hourly");
-
-                      const data = await getHourlyWeather(city);
-                      setHourlyData(data);
-                    }
-                  }}
-                >
-                  Hourly forecast
-                </button>
-
-                <button
-                  className="weather-button"
-                  onClick={() => {
-                    if (
-                      activeCity?.id === city.id &&
-                      activeForecast === "weekly"
-                    ) {
-                      setActiveCity(null);
-                      setActiveForecast(null);
-                    } else {
-                      setActiveCity(city);
-                      setActiveForecast("weekly");
-                    }
-                  }}
-                >
-                  Weekly forecast
-                </button>
-              </div>
+                  <button
+                    className="weather-button"
+                    onClick={() => openForecast(city, "weekly")}
+                  >
+                    Weekly forecast
+                  </button>
+                </div>
+              )}
+              {!user && (
+                <div className="weather-button-box">
+                  <button
+                    className="weather-button"
+                    onClick={() => openForecast(city, "hourly")}
+                  >
+                    Hourly forecast
+                  </button>
+                </div>
+              )}
 
               <div className="weather-date-box">
                 <h3 className="weather-data">
@@ -114,27 +128,32 @@ export const Weather = ({
                   <div className="weather-icon-div">
                     <button
                       className="weather-icon"
-                      onClick={() => toggleLikeCity(city.id)}
+                      onClick={() => toggleLikeCity({ id: city.id, user })}
                     >
                       <svg
                         className={`icon icon-heart ${city.liked ? "icon-heard-liked" : ""}`}
                         width="32"
                         height="32"
                       >
-                        <use href="#icon-heart"></use>
+                        {city.liked ? (
+                            <use href="#heart-full-icon"></use>
+                        ) : (
+                           <use href="#icon-heart"></use>
+                        )}
+                       
                       </svg>
                     </button>
 
                     <button
                       className="weather-buttons"
-                      onClick={() => setActiveCity(city)}
+                      onClick={() => openForecast(city, null)}
                     >
                       See more
                     </button>
 
                     <button
                       className="weather-icon"
-                      onClick={() => removeCity(city.id)}
+                      onClick={() => handleRemoveCity(city.id)}
                     >
                       <svg className="icon icon-trash" width="32" height="32">
                         <use href="#icon-trash"></use>

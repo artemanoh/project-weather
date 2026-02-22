@@ -1,7 +1,7 @@
 {
   "name": "project-weather",
   "version": "0.1.0",
-  "homepage": "https://artemanoh.github.io/project-weather/",
+  "homepage": "https://artemanoh.github.io/project-weather",
   "private": true,
   "dependencies": {
     "@carousel-ui/react-spin-carousel-3d": "^1.0.18",
@@ -12,9 +12,10 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
-    "gh-pages": "^6.3.0",
     "chart.js": "^4.5.1",
+    "firebase": "^12.9.0",
     "formik": "^2.4.9",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.4",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.2.4",
@@ -26,7 +27,7 @@
     "styled-components": "^6.3.8",
     "web-vitals": "^2.1.4"
   },
-"scripts": {
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -14,10 +14,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
-  const [user, setUser] = useState(() => {
-    return localStorage.getItem("user") || null;
-  });
+const [user, setUser] = useState(() => {
+  const saved = localStorage.getItem("user");
+  return saved ? JSON.parse(saved) : null;
+});
   const weather = useWeather("80888bb460adb932cd1e3b372f015b83");
+  
 
   const onLogOut = () => {
     localStorage.removeItem("user")
@@ -27,7 +29,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem("user", user);
+      localStorage.setItem("user", JSON.stringify(user));
     } else {
       localStorage.removeItem("user")
     }
@@ -36,7 +38,7 @@ function App() {
     <div className="App">
       <Header onOpenModal={() => setActiveModal("signup")} user={user} onLogOut={onLogOut} />
       <Dashboard addCity={weather.addCity} />
-      <Weather cities={weather.cities} removeCity={weather.removeCity} refreshCity={weather.refreshCity} toggleLikeCity={weather.toggleLikeCity} getHourlyWeather={weather.getHourlyWeather} />
+      <Weather cities={weather.cities} removeCity={weather.removeCity} refreshCity={weather.refreshCity} toggleLikeCity={weather.toggleLikeCity} getHourlyWeather={weather.getHourlyWeather} user={user} />
       <Pets />
       <Nature />
       <Footer />
