@@ -38,7 +38,7 @@ export const WeeklyForecast = ({ city }) => {
   }, [city]);
 
   if (!forecast) return <p>Loading...</p>;
- 
+
   return (
     <section className="wekly-forecast">
       <div className="wekly-forecast-box">

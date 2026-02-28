@@ -56,12 +56,14 @@ export const Weather = ({
               </div>
 
               <h2 className="weather-time">
-             {new Date((city.dt + city.timezone) * 1000)
-  .toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "UTC",
-  })}
+                {new Date((city.dt + city.timezone) * 1000).toLocaleTimeString(
+                  "en-GB",
+                  {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    timeZone: "UTC",
+                  },
+                )}
               </h2>
               {user && (
                 <div className="weather-button-box">
@@ -139,11 +141,10 @@ export const Weather = ({
                         height="32"
                       >
                         {city.liked ? (
-                            <use href="#heart-full-icon"></use>
+                          <use href="#heart-full-icon"></use>
                         ) : (
-                           <use href="#icon-heart"></use>
+                          <use href="#icon-heart"></use>
                         )}
-                       
                       </svg>
                     </button>
 
