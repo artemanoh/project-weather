@@ -11,15 +11,16 @@ import { useEffect, useState } from 'react';
 import { useWeather } from './hooks/useWeather';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { TrendingCities } from './components/TrendingCities';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
-const [user, setUser] = useState(() => {
-  const saved = localStorage.getItem("user");
-  return saved ? JSON.parse(saved) : null;
-});
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
   const weather = useWeather("80888bb460adb932cd1e3b372f015b83");
-  
+
 
   const onLogOut = () => {
     localStorage.removeItem("user")
@@ -38,6 +39,9 @@ const [user, setUser] = useState(() => {
     <div className="App">
       <Header onOpenModal={() => setActiveModal("signup")} user={user} onLogOut={onLogOut} />
       <Dashboard addCity={weather.addCity} />
+      <TrendingCities addCity={weather.addCity}
+        cities={weather.cities}
+        apiKey={weather.apiKey} />
       <Weather cities={weather.cities} removeCity={weather.removeCity} refreshCity={weather.refreshCity} toggleLikeCity={weather.toggleLikeCity} getHourlyWeather={weather.getHourlyWeather} user={user} />
       <Pets />
       <Nature />

@@ -1,0 +1,60 @@
+.trending-section {
+    margin-bottom: 40px;
+}
+
+.trending-title {
+    margin-bottom: 15px;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 24px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+       opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.trending-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.trending-btn {
+     background-color: #FFB36C;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 10px;
+      font-family: Montserrat;
+      font-weight: 400;
+      color: #000;
+      font-size: 12px;
+      margin-bottom: 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      @media screen and (min-width: 1200px) {
+          padding: 10px 20px;
+          font-size: 14px;
+      }
+}
+
+.trending-btn:hover {
+       background-color: #f6c189;
+      transform: scale(1.10);
+}
+
+.trending-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

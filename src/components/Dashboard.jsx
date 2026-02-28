@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../css/Dashboard.css";
-import { useWeather } from "../hooks/useWeather";
 
 export const Dashboard = ({ addCity }) => {
   const [cityName, setCityName] = useState("");

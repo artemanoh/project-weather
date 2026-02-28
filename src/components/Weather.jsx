@@ -56,9 +56,12 @@ export const Weather = ({
               </div>
 
               <h2 className="weather-time">
-                {new Date(
-                  Date.now() + city.timezone * 1000,
-                ).toLocaleTimeString()}
+             {new Date((city.dt + city.timezone) * 1000)
+  .toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "UTC",
+  })}
               </h2>
               {user && (
                 <div className="weather-button-box">

@@ -36,17 +36,17 @@ export const AdvancedWeather = ({ city }) => {
           <li className="advanced-weather-list-item">
             <h3 className="advanced-weather-text">Humidity</h3>
             <h2 className="advanced-weather-temp">{city.main.humidity}%</h2>
-                        <img  src={rain} className="advanced-weather-img"/>
+                        <img  src={rain} alt="rain" className="advanced-weather-img"/>
           </li>
           <li className="advanced-weather-list-item">
             <h3 className="advanced-weather-text">Pressure</h3>
             <h2 className="advanced-weather-temp">{city.main.pressure} Pa</h2>
-            <img src={pressure} className="advanced-weather-img"/>
+            <img src={pressure} alt="pressure" className="advanced-weather-img"/>
           </li>
           <li className="advanced-weather-list-item">
             <h3 className="advanced-weather-text">Wind speed</h3>
             <h2 className="advanced-weather-temp">{city.wind.speed} m/s</h2>
-            <img  src={wind} className="advanced-weather-img"/>
+            <img  src={wind} alt="wind" className="advanced-weather-img"/>
           </li>
           <li className="advanced-weather-list-item">
             <h3 className="advanced-weather-text">Visibility</h3>
