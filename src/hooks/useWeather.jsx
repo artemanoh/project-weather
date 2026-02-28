@@ -9,7 +9,8 @@ export const useWeather = (apiKey) => {
 
 
   useEffect(() => {
-    localStorage.setItem("cities", JSON.stringify(cities));
+  const likedCities = cities.filter((city) => city.liked);
+    localStorage.setItem("cities", JSON.stringify(likedCities));
   }, [cities]);
 
   const addCity = async (cityName) => {
