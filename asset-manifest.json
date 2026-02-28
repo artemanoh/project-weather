@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/project-weather/static/css/main.f61fa221.css",
-    "main.js": "/project-weather/static/js/main.79e0b2ee.js",
+    "main.js": "/project-weather/static/js/main.ea928f12.js",
     "static/media/Dashboard-background.png": "/project-weather/static/media/Dashboard-background.da9ed10f332385239f5f.png",
     "static/media/Dashboard-background-mobile.png": "/project-weather/static/media/Dashboard-background-mobile.909615ffc2208d585a9f.png",
     "static/media/pressure.png": "/project-weather/static/media/pressure.886dcce6ba8f3f683cc5.png",
     "index.html": "/project-weather/index.html",
     "main.f61fa221.css.map": "/project-weather/static/css/main.f61fa221.css.map",
-    "main.79e0b2ee.js.map": "/project-weather/static/js/main.79e0b2ee.js.map"
+    "main.ea928f12.js.map": "/project-weather/static/js/main.ea928f12.js.map"
   },
   "entrypoints": [
     "static/css/main.f61fa221.css",
-    "static/js/main.79e0b2ee.js"
+    "static/js/main.ea928f12.js"
   ]
 }
