@@ -6,13 +6,13 @@ export const ModalLogin = ({ onClose, openSignUp, setUser, setCities  }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-const API_URL = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
+const ApiUrl = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
 
  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(ApiUrl);
       const users = await response.json();
       const user = users.find(
         (u) => u.name === username && u.password === password
@@ -34,7 +34,7 @@ const API_URL = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
             name: city.name,
             liked: true,
             coord: city.coord || { lat: city.lat || 0, lon: city.lon || 0 },
-            sys: { country: city.country || city?.sys?.country || "UA" },
+            sys: { country: city.country || city.sys.country || "UA" },
             main: {
               temp: city.temp || 0,
               feels_like: city.feels_like || city.temp || 0,
@@ -45,12 +45,12 @@ const API_URL = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
             },
             weather: [
               {
-                icon: city.icon || city?.weather?.[0]?.icon || "01d",
+                icon: city.icon || city.weather[0].icon || "01d",
                 description:
-                  city.description || city?.weather?.[0]?.description || city.name,
+                  city.description || city.weather[0].description || city.name,
               },
             ],
-            wind: { speed: city.windSpeed || city?.wind?.speed || 0 },
+            wind: { speed: city.windSpeed || city.wind.speed || 0 },
             visibility: city.visibility || 10000,
             dt: city.dt || Math.floor(Date.now() / 1000),
             timezone: city.timezone || 0,

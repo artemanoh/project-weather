@@ -2,7 +2,6 @@ import logo from "../images/header-logo.png";
 import userLogo from "../images/user-logo.png";
 import "../css/Header.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export const Header = ({ onOpenModal, user, onLogOut,onModalOpen }) => {
   const [open, setOpen] = useState(false);

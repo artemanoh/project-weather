@@ -6,8 +6,16 @@
     margin-bottom: 15px;
     font-family: Montserrat;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 16px;
     animation: pulse 2s infinite;
+
+     @media screen and (min-width: 768px) {
+       font-size: 20px;
+    }
+
+     @media screen and (min-width: 1200px) {
+       font-size: 24px;
+    }
 }
 
 @keyframes pulse {
@@ -26,9 +34,17 @@
 
 .trending-list {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+
+     @media screen and (min-width: 768px) {
+       gap: 12px;
+    }
+
+     @media screen and (min-width: 1200px) {
+       gap: 15px;
+    }
 }
 
 .trending-btn {
@@ -39,10 +55,14 @@
       font-family: Montserrat;
       font-weight: 400;
       color: var(--accent-contrast);
-      font-size: 12px;
+      font-size: 10px;
       margin-bottom: 15px;
       transition: background-color 0.3s ease, transform 0.3s ease;
       cursor: pointer;
+
+       @media screen and (min-width: 768px) {
+       font-size: 12px;
+    }
 
       @media screen and (min-width: 1200px) {
           padding: 10px 20px;

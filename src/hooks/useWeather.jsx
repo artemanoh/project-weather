@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-const API_USERS = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
+const ApiUsers = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
 
 export const useWeather = (apiKey, setUser) => {
   const [cities, setCities] = useState(() => {
@@ -93,7 +93,7 @@ export const useWeather = (apiKey, setUser) => {
     }
 
     try {
-      await fetch(`${API_USERS}/${user.id}`, {
+      await fetch(`${ApiUsers}/${user.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ likedCities: newLikedCities }),
