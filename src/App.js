@@ -29,6 +29,14 @@ function App() {
     return AvailableThemes.includes(savedTheme) ? savedTheme : "light";
   });
 
+  const handleOpenMap = () => {
+  if (weather.cities.length === 0) {
+    toast.warning("Спочатку додайте місто");
+    return;
+  }
+
+  setOpen(true);
+};
   useEffect(() => {
     document.body.classList.remove(
       "light-theme",
@@ -95,7 +103,7 @@ function App() {
 )}
 
       <div className="app-map">
-        <button className="app-map-button" disabled={!user}  onClick={() => setOpen(true)}>
+        <button className="app-map-button" disabled={!user}  onClick={() => handleOpenMap}>
           <svg
             className="icon-map"
             width={32}
