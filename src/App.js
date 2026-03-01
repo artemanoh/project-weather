@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { TrendingCities } from './components/TrendingCities';
 import { ModalSettings } from './components/modal/ModalSettings';
 import { ModalMap } from './components/modal/ModalMap';
-import { toast } from "react-toastify";
 
 const AvailableThemes = ["light", "dark", "nature", "aurora"];
 
@@ -29,15 +28,6 @@ function App() {
     const savedTheme = localStorage.getItem("theme");
     return AvailableThemes.includes(savedTheme) ? savedTheme : "light";
   });
-
-  const handleOpenMap = () => {
-  if (weather.cities.length === 0) {
-    toast.warning("Спочатку додайте місто");
-    return;
-  }
-
-  setOpen(true);
-};
   useEffect(() => {
     document.body.classList.remove(
       "light-theme",
@@ -104,7 +94,7 @@ function App() {
 )}
 
       <div className="app-map">
-        <button className="app-map-button" disabled={!user}  onClick={() => handleOpenMap}>
+        <button className="app-map-button" disabled={!user}  onClick={() => setOpen(true)}>
           <svg
             className="icon-map"
             width={32}
