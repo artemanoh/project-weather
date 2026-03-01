@@ -22,6 +22,32 @@
     }
 }
 
+body.aurora-theme .dashboard-container {
+    background-image:
+      linear-gradient(135deg, rgba(108, 228, 220, 0.08), rgba(110, 168, 255, 0.08), rgba(141, 123, 255, 0.06)),
+      url("../images/Dashboard-background-mobile.png");
+}
+
+body.nature-theme .dashboard-container {
+    background-image:
+      linear-gradient(135deg, rgba(14, 58, 38, 0.2), rgba(24, 94, 63, 0.14)),
+      url("../images/Dashboard-background-mobile.png");
+}
+
+@media screen and (min-width: 768px) {
+  body.aurora-theme .dashboard-container {
+    background-image:
+      linear-gradient(135deg, rgba(108, 228, 220, 0.08), rgba(110, 168, 255, 0.08), rgba(141, 123, 255, 0.06)),
+      url("../images/Dashboard-background.png");
+  }
+
+  body.nature-theme .dashboard-container {
+    background-image:
+      linear-gradient(135deg, rgba(14, 58, 38, 0.2), rgba(24, 94, 63, 0.14)),
+      url("../images/Dashboard-background.png");
+  }
+}
+
 .dashboard-box {
     display: flex;
     justify-content: center;
@@ -132,6 +158,8 @@ gap: 20px;
     border-radius: 8px 0 0 8px;
     border: none;
     padding-left: 20px;
+    background-color: var(--input-bg);
+    color: var(--input-text);
 
     @media screen and (min-width: 768px) {
     width: 371px;
@@ -145,9 +173,10 @@ gap: 20px;
 .dashboard-input-button {
     height: 36px;
     border-radius: 0 8px 8px 0;
-    background-color: #FFB36C;
+    background-color: var(--accent);
     border: none;
     width: 35px;
+    cursor: pointer;
 }
 
 .icon-search {

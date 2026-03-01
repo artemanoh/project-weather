@@ -32,16 +32,17 @@
 }
 
 .trending-btn {
-     background-color: #FFB36C;
+     background-color: var(--accent);
       border: none;
       padding: 10px 30px;
       border-radius: 10px;
       font-family: Montserrat;
       font-weight: 400;
-      color: #000;
+      color: var(--accent-contrast);
       font-size: 12px;
       margin-bottom: 15px;
       transition: background-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
 
       @media screen and (min-width: 1200px) {
           padding: 10px 20px;
@@ -50,7 +51,7 @@
 }
 
 .trending-btn:hover {
-       background-color: #f6c189;
+       background-color: var(--accent-hover);
       transform: scale(1.10);
 }
 

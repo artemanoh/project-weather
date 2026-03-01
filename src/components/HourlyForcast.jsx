@@ -39,7 +39,7 @@ export const HourlyForecast = ({ hourlyData }) => {
           <Line
             type="monotone"
             dataKey="temp"
-            stroke="orange"
+            stroke="var(--accent)"
             strokeWidth={3}
             dot={{ r: 4 }}
           />

@@ -20,7 +20,7 @@ export const Pets = () => {
 
   if (!articles.length) return <p>Loading news...</p>;
   return (
-    <section className="pets">
+    <section className="pets" id="pets">
       <div className="container">
         <div className="pets-container">
           <h2 className="pets-title">Interacting with our pets</h2>

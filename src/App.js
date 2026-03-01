@@ -9,9 +9,13 @@ import { Modal } from './components/modal/Modal';
 import { ModalLogin } from './components/modal/ModalLogin';
 import { useEffect, useState } from 'react';
 import { useWeather } from './hooks/useWeather';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { TrendingCities } from './components/TrendingCities';
+import { ModalSettings } from './components/modal/ModalSettings';
+import { ModalMap } from './components/modal/ModalMap';
+
+const AvailableThemes = ["light", "dark", "nature", "aurora"];
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
@@ -19,14 +23,28 @@ function App() {
     const saved = localStorage.getItem("user");
     return saved ? JSON.parse(saved) : null;
   });
-  const weather = useWeather("80888bb460adb932cd1e3b372f015b83");
+  const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return AvailableThemes.includes(savedTheme) ? savedTheme : "light";
+  });
+
+  useEffect(() => {
+    document.body.classList.remove(
+      "light-theme",
+      "dark-theme",
+      "nature-theme",
+      "aurora-theme"
+    );
+    document.body.classList.add(`${theme}-theme`);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  const weather = useWeather("80888bb460adb932cd1e3b372f015b83", setUser);
 
 
-  const onLogOut = () => {
-    localStorage.removeItem("user")
-    setUser(null)
-    toast.success("Успішний вихід з аккаунту!");
-  }
+
+
+
 
   useEffect(() => {
     if (user) {
@@ -36,8 +54,8 @@ function App() {
     }
   }, [user]);
   return (
-    <div className="App">
-      <Header onOpenModal={() => setActiveModal("signup")} user={user} onLogOut={onLogOut} />
+    <div className={`App ${theme}`}>
+      <Header onOpenModal={() => setActiveModal("signup")} user={user} onLogOut={weather.onLogOut} onModalOpen={() => setActiveModal("settings")} />
       <Dashboard addCity={weather.addCity} />
       <TrendingCities addCity={weather.addCity}
         cities={weather.cities}
@@ -57,9 +75,34 @@ function App() {
         <ModalLogin
           onClose={() => setActiveModal(null)}
           openSignUp={() => setActiveModal("signup")} setUser={setUser}
+          setCities={weather.setCities}
+        />
+      )}
+      {activeModal === "settings" && (
+        <ModalSettings
+          onClose={() => setActiveModal(null)}
+          theme={theme}
+          setTheme={setTheme}
         />
       )}
       <ToastContainer position="top-right" autoClose={3000} />
+      
+       {open && (
+  <ModalMap
+    cities={weather.cities}
+    onClose={() => setOpen(false)}
+  />
+)}
+
+      <div className="app-map">
+        <button className="app-map-button" disabled={!user}  onClick={() => setOpen(true)}>
+          <svg
+            className="icon-map"
+            width={32}
+            height={32}
+            viewBox="0 0 32 32"
+          >  <use href="#icon-map" /></svg></button>
+      </div>
     </div>
   );
 }

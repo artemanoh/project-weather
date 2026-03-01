@@ -33,7 +33,7 @@ export const Dashboard = ({ addCity }) => {
 
   const dayWithSuffix = `${dayNumber}${getOrdinal(dayNumber)}`;
   return (
-    <section className="dashboard">
+    <section className="dashboard" id="dashboard">
       <div className="dashboard-container">
         <h2 className="dashboard-title">Weather dashboard</h2>
 

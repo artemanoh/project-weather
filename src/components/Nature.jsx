@@ -26,7 +26,7 @@ export const Nature = () => {
   if (!images.length) return <p>Loading...</p>;
 
   return (
-    <section className="nature">
+    <section className="nature-section" id="nature">
       <div className="container">
         <h2 className="nature-title">Beautiful nature</h2>
         <div className="nature-slider"> 

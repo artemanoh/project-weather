@@ -1,6 +1,6 @@
 .hourlyForecast{
     margin-top: 80px;
-background-color: #E8E8E8;
+background-color: var(--panel-bg);
 width: 293px;
 border-radius: 20px;
 padding:  20px 10px 20px 5px;
@@ -32,11 +32,12 @@ align-items: center;
 
 .recharts-surface {
   outline: none;
-  display: flex !important;
-  justify-content: center !important;
+  display: flex ;
+  justify-content: center ;
 }
 .recharts-tooltip-wrapper {
-  background: white;
+  background: var(--surface-secondary);
+  color: var(--text-primary);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 8px;

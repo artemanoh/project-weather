@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-export const useWeather = (apiKey) => {
+const API_USERS = "https://69a1838c2e82ee536fa16fb5.mockapi.io/users";
+
+export const useWeather = (apiKey, setUser) => {
   const [cities, setCities] = useState(() => {
     const saved = localStorage.getItem("cities");
     return saved ? JSON.parse(saved) : [];
   });
 
+  const onLogOut = () => {
+    setUser(null);
+    setCities([]);
+    toast.info("Ви вийшли з аккаунта");
+  };
 
   useEffect(() => {
-  const likedCities = cities.filter((city) => city.liked);
-    localStorage.setItem("cities", JSON.stringify(likedCities));
+    localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
 
   const addCity = async (cityName) => {
@@ -52,7 +58,11 @@ export const useWeather = (apiKey) => {
       );
       const data = await res.json();
 
-      setCities((prev) => prev.map((c) => (c.id === city.id ? data : c)));
+      setCities((prev) =>
+        prev.map((c) =>
+          c.id === city.id ? { ...data, liked: c.liked ?? false } : c,
+        ),
+      );
       toast.success(`${city.name} оновлено!`);
     } catch (err) {
       console.log(err);
@@ -60,25 +70,47 @@ export const useWeather = (apiKey) => {
     }
   };
 
-  const toggleLikeCity = ({id, user}) => {
+  const toggleLikeCity = async ({ id, user }) => {
     if (!user) {
-       toast.error(`Зареєструйтесь щоб додати місто в список улюблених`);
-       return
+      toast.error("Зареєструйтесь щоб додати місто в список улюблених");
+      return;
     }
-    setCities((prev) =>
-      prev.map((city) => {
-        if (city.id === id) {
-          const newLiked = !city.liked;
-          if (newLiked) {
-            toast.success(`${city.name} додано до улюблених!`);
-          } else {
-            toast.success(`${city.name} видалено з улюблених!`);
-          }
-          return { ...city, liked: newLiked };
-        }
-        return city;
-      }),
-    );
+    const city = cities.find((c) => c.id === id);
+    if (!city) return;
+
+    const likedCities = user.likedCities ? [...user.likedCities] : [];
+    const index = likedCities.findIndex((c) => c.id === city.id);
+
+    let newLikedCities;
+    let liked;
+
+    if (index > -1) {
+      newLikedCities = likedCities.filter((c) => c.id !== city.id);
+      liked = false;
+    } else {
+      newLikedCities = [...likedCities, { ...city, liked: true }];
+      liked = true;
+    }
+
+    try {
+      await fetch(`${API_USERS}/${user.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ likedCities: newLikedCities }),
+      });
+      setCities((prev) =>
+        prev.map((c) => (c.id === city.id ? { ...c, liked } : c)),
+      );
+
+      toast.success(
+        liked
+          ? `${city.name} додано до улюблених!`
+          : `${city.name} видалено з улюблених!`,
+      );
+    } catch (err) {
+      console.log(err);
+      toast.error("Помилка при оновленні лайку на сервері");
+    }
   };
 
   const getHourlyWeather = async (city) => {
@@ -113,5 +145,14 @@ export const useWeather = (apiKey) => {
     }
   };
 
-  return { cities, addCity, removeCity, refreshCity, toggleLikeCity, getHourlyWeather };
+  return {
+    cities,
+    addCity,
+    removeCity,
+    refreshCity,
+    toggleLikeCity,
+    getHourlyWeather,
+    onLogOut,
+    setCities,
+  };
 };

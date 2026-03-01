@@ -1,5 +1,6 @@
 .footer {
-    background-color: #FFB36C;
+    background-color: var(--accent);
+    color: var(--accent-contrast);
 }
 
 .footer-container {

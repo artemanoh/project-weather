@@ -17,9 +17,18 @@
    
 }
 
+.weather-empty-state{
+   font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 400;
+}
+
 .weather-list-item {
     border-radius: 20px;
-    background-color: #E8E8E8;
+    background-color: var(--surface-primary);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(6px);
     padding: 20px;
     width: 262px;
     display: flex;
@@ -45,8 +54,22 @@
     justify-content: space-between;
 }
 
+.weather-checker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Montserrat;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.weather-checker input {
+  accent-color: var(--accent);
+}
+
 .weather-city {
-    font-family: Montserrat;
+  color: var(--text-primary);
+  font-family: Montserrat;
   font-size: 12px;
   font-weight: 400;
   
@@ -60,7 +83,8 @@
 }
 
 .weather-country {
-    font-family: Montserrat;
+  color: var(--text-secondary);
+  font-family: Montserrat;
   font-size: 12px;
   font-weight: 400;
 
@@ -71,7 +95,8 @@
 
 
 .weather-time {
-    font-family: Montserrat;
+  color: var(--text-primary);
+  font-family: Montserrat;
   font-size: 20px;
   font-weight: 500;
 
@@ -83,33 +108,35 @@
 .weather-line{
     width: 1px;
     height: 17px;
-    background-color: #000000;
+    background-color: var(--border-soft);
 }
 
 
 .weather-button {
     width: 125px;
-   background-color: #FFB36C;
+   background-color: var(--accent);
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
     font-family: Montserrat;
     font-weight: 400;
-    color: #000;
+    color: var(--accent-contrast);
     font-size: 9px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
        @media screen and (min-width: 1200px) {
       font-size: 10px;
     }
 }
 
 .weather-button:hover {
-  background-color: #f6c189;
+  background-color: var(--accent-hover);
   transform: scale(1.10);
 }
 
 .weather-data{
-        font-family: Montserrat;
+  color: var(--text-secondary);
+  font-family: Montserrat;
   font-size: 12px;
   font-weight: 400;
 
@@ -119,7 +146,8 @@
 }
 
 .weather-day{
-        font-family: Montserrat;
+  color: var(--text-secondary);
+  font-family: Montserrat;
   font-size: 12px;
   font-weight: 400;
 
@@ -151,7 +179,8 @@ gap: 12px;
 
 
 .weather-temperature {
-    font-family: Montserrat;
+  color: var(--text-primary);
+  font-family: Montserrat;
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 25px;
@@ -163,7 +192,7 @@ gap: 12px;
 
 
 .weather-icon {
-  background-color: #E8E8E8;
+  background-color: var(--icon-btn-bg);
   border: none;
 
 }
@@ -181,7 +210,7 @@ gap: 12px;
 
 
 .weather-buttons {
-   background-color: #FFB36C;
+   background-color: var(--accent);
     border: none;
     padding-left: 20px;
     padding-right: 20px;
@@ -190,10 +219,11 @@ gap: 12px;
     border-radius: 10px;
     font-family: Montserrat Alternates;
     font-weight: 400;
-    color: #000;
+    color: var(--accent-contrast);
     width: 84px;
     font-size: 9px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
        @media screen and (min-width: 1200px) {
       width: 100px;
       font-size: 10px;
@@ -201,7 +231,7 @@ gap: 12px;
 }
 
 .weather-buttons:hover {
-  background-color: #f6c189;
+  background-color: var(--accent-hover);
   transform: scale(1.10);
 }
 
@@ -218,7 +248,7 @@ display: flex;
   width: 24px;
   height: 24px;
    transition: fill 0.3s ease;
-
+cursor: pointer;
      @media screen and (min-width: 1200px) {
       width: 32px;
       height: 32px;
@@ -228,7 +258,7 @@ display: flex;
 .icon-spinner{
   width: 24px;
   height: 24px;
-
+cursor: pointer;
      @media screen and (min-width: 1200px) {
       width: 32px;
       height: 32px;
@@ -238,6 +268,7 @@ display: flex;
 .icon-trash{
   width: 24px;
   height: 24px;
+  cursor: pointer;
      @media screen and (min-width: 1200px) {
       width: 32px;
       height: 32px;

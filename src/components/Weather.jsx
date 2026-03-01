@@ -16,19 +16,25 @@ export const Weather = ({
   const [activeCity, setActiveCity] = useState(null);
   const [activeForecast, setActiveForecast] = useState(null);
   const [hourlyData, setHourlyData] = useState([]);
+  const [currentUtc, setCurrentUtc] = useState(Date.now());
 
-  const handleRemoveCity = (cityId) => {
-    if (activeCity?.id === cityId) {
-      setActiveCity(null);
-      setActiveForecast(null);
-      setHourlyData([]);
-    }
+  
 
-    removeCity(cityId);
-  };
+  const getCityDate = (timezone = 0) =>
+    new Date(currentUtc + timezone * 1000);
+
+const handleRemoveCity = (cityId) => {
+  if (activeCity && activeCity.id === cityId) {
+    setActiveCity(null);
+    setActiveForecast(null);
+    setHourlyData([]);
+  }
+
+  removeCity(cityId);
+};
 
   const openForecast = async (city, type) => {
-    if (activeCity?.id === city.id && activeForecast === type) {
+   if (activeCity && activeCity.id === city.id && activeForecast === type) {
       setActiveCity(null);
       setActiveForecast(null);
       setHourlyData([]);
@@ -44,11 +50,33 @@ export const Weather = ({
     }
   };
 
+const handleRefreshCity = async (city) => {
+  const wasLiked = city.liked;
+
+  const updated = await refreshCity(city);
+
+  if (updated && wasLiked) {
+    updated.liked = true;
+  }
+
+  setCurrentUtc(Date.now());
+};
+
   return (
     <section className="weather">
       <div className="container">
         <ul className="weather-list">
-          {cities.map((city) => (
+          {cities.length === 0 && (
+            <>
+              <h2 className="weather-empty-state">
+                🌍 Start by adding your first city
+              </h2>
+            </>
+          )}
+          {cities.map((city) => {
+            const cityDate = getCityDate(city.timezone);
+
+            return (
             <li key={city.id} className="weather-list-item">
               <div className="weather-box">
                 <h3 className="weather-city">{city.name}</h3>
@@ -56,14 +84,12 @@ export const Weather = ({
               </div>
 
               <h2 className="weather-time">
-                {new Date((city.dt + city.timezone) * 1000).toLocaleTimeString(
-                  "en-GB",
-                  {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    timeZone: "UTC",
-                  },
-                )}
+                {cityDate.toLocaleTimeString("en-GB", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                  timeZone: "UTC",
+                })}
               </h2>
               {user && (
                 <div className="weather-button-box">
@@ -95,11 +121,16 @@ export const Weather = ({
 
               <div className="weather-date-box">
                 <h3 className="weather-data">
-                  {new Date().toLocaleDateString()}
+                  {cityDate.toLocaleDateString("en-GB", {
+                    timeZone: "UTC",
+                  })}
                 </h3>
                 <div className="weather-line"></div>
                 <h3 className="weather-day">
-                  {new Date().toLocaleDateString("en-US", { weekday: "long" })}
+                  {cityDate.toLocaleDateString("en-GB", {
+                    weekday: "long",
+                    timeZone: "UTC",
+                  })}
                 </h3>
               </div>
 
@@ -123,7 +154,7 @@ export const Weather = ({
                 <div className="weather-icon-box">
                   <button
                     className="weather-icon"
-                    onClick={() => refreshCity(city)}
+                    onClick={() => handleRefreshCity(city)}
                   >
                     <svg className="icon icon-spinner" width="32" height="32">
                       <use href="#icon-spinner"></use>
@@ -167,7 +198,8 @@ export const Weather = ({
                 </div>
               </div>
             </li>
-          ))}
+            );
+          })}
         </ul>
       </div>
 
