@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { TrendingCities } from './components/TrendingCities';
 import { ModalSettings } from './components/modal/ModalSettings';
 import { ModalMap } from './components/modal/ModalMap';
+import { toast } from "react-toastify";
 
 const AvailableThemes = ["light", "dark", "nature", "aurora"];
 
